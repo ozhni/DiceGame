@@ -13,12 +13,12 @@ const btnNew = document.querySelector(".btn--new");
 const btnRoll = document.querySelector(".btn--roll");
 const btnHold = document.querySelector(".btn--hold");
 
-let scores, currentscore, activePlayer, playing;
+let scores, currentScore, activePlayer, playing;
 
 //starting conditions
 const init = function () {
   scores = [0, 0];
-  currentscore = 0;
+  currentScore = 0;
   activePlayer = 0;
   playing = true;
 
@@ -37,7 +37,7 @@ init();
 
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
-  currentscore = 0;
+  currentScore = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
   player0El.classList.toggle("player--active");
   player1El.classList.toggle("player--active");
@@ -55,9 +55,9 @@ btnRoll.addEventListener("click", function () {
     //check for rolled 1
     if (dice !== 1) {
       //add dice to curScore
-      currentscore += dice;
+      currentScore += dice;
       document.getElementById(`current--${activePlayer}`).textContent =
-        currentscore;
+        currentScore;
     } else {
       //swich player
       switchPlayer();
@@ -69,21 +69,21 @@ btnRoll.addEventListener("click", function () {
 btnHold.addEventListener("click", function () {
   if (playing) {
     //add score to curP score
-    scores[activePlayer] += currentscore;
+    scores[activePlayer] += currentScore;
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
 
     // check if player score>100, won
-    if (score[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 100) {
       playing = false;
       diceEl.classList.add("hidden");
 
       document
-        .querySelector(`player--${activePlayer}`)
+        .querySelector(`.player--${activePlayer}`)
         .classList.add("player--winner");
 
       document
-        .querySelector(`player--${activePlayer}`)
+        .querySelector(`.player--${activePlayer}`)
         .classList.remove("player--active");
     } else {
       switchPlayer();
