@@ -46,3 +46,57 @@ main {
   align-items: center;
   transition: all 0.75s;
 }
+
+/* ELEMENTS */
+
+.name {
+  position: relative;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1ram;
+}
+
+.score {
+  font-size: 8rem;
+  font-weight: 300;
+  color: #1d53c8;
+  margin-bottom: auto;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player--active .name {
+  font-weight: 700;
+}
+
+.player--active .score {
+  font-weight: 500;
+}
+
+.current {
+  background-color: #1d53c8;
+  opacity: 0.8;
+  border-radius: 9px;
+  color: aliceblue;
+  width: 75%;
+  padding: 2rem 2rem;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: aliceblue;
+  text-align: center;
+}
+
+.current-score {
+  font-size: 3.5rem;
+}
