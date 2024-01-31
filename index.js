@@ -64,3 +64,31 @@ btnRoll.addEventListener("click", function () {
     }
   }
 });
+
+//Holding score
+btnHold.addEventListener("click", function () {
+  if (playing) {
+    //add score to curP score
+    scores[activePlayer] += currentscore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+
+    // check if player score>100, won
+    if (score[activePlayer] >= 100) {
+      playing = false;
+      diceEl.classList.add("hidden");
+
+      document
+        .querySelector(`player--${activePlayer}`)
+        .classList.add("player--winner");
+
+      document
+        .querySelector(`player--${activePlayer}`)
+        .classList.remove("player--active");
+    } else {
+      switchPlayer();
+    }
+  }
+});
+
+btnNew.addEventListener("click", init);
