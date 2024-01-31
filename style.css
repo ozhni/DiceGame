@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 60%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  color: #333;
+  background-image: linear-gradient(
+    to top left,
+    #1d53c8 0%,
+    rgb(11, 223, 174) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
