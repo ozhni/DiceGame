@@ -42,3 +42,25 @@ const switchPlayer = function () {
   player0El.classList.toggle("player--active");
   player1El.classList.toggle("player--active");
 };
+
+//rolling dice f
+btnRoll.addEventListener("click", function () {
+  if (playing) {
+    const dice = Math.trunc(Math.random() * 6) + 1;
+
+    //display dice
+    diceEl.classList.remove("hidden");
+    diceEl.src = `dice-${dice}.png`;
+
+    //check for rolled 1
+    if (dice !== 1) {
+      //add dice to curScore
+      currentscore += dice;
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentscore;
+    } else {
+      //swich player
+      switchPlayer();
+    }
+  }
+});
